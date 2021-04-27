@@ -6,7 +6,7 @@ public class FullTimeMentor implements Mentor {
 
     @Override
     public void createAccount() {
-        System.out.println();
+        System.out.println("Full Time Mentor Account is Created");
     }
 }
 
