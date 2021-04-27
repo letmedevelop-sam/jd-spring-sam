@@ -7,7 +7,6 @@ import services.FullTimeMentor;
 public class CybertekApp {
     public static void main(String[] args) {
         //BeanFactory container = new ClassPathXmlApplicationContext("config.xml");
-
         //we can also try with ApplicationContext
         ApplicationContext container = new ClassPathXmlApplicationContext("config.xml");
 
@@ -20,8 +19,6 @@ public class CybertekApp {
         //We have also another way to do it
         Mentor mentor1 = container.getBean("fullTimeMentor", Mentor.class); // no need to down cast in this way
 
-
         mentor1.createAccount();
-
     }
 }
