@@ -9,6 +9,13 @@ public class CybertekApp {
 
         ApplicationContext container = new ClassPathXmlApplicationContext("config.xml");
 
-        Course course = (Course) container.getBean("java");
+        //Course course = (Course) container.getBean("java");
+
+        Course course = container.getBean("java", Course.class);
+        course.getTeachingHours();
+
+        Course course2 = (Course) container.getBean("selenium");
+        course2.getTeachingHours();
+
     }
 }
