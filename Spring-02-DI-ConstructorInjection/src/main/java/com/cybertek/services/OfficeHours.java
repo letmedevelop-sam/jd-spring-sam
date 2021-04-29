@@ -7,4 +7,5 @@ public class OfficeHours implements ExtraSessions {
     public int getHours() {
        return  5;
     }
+
 }
