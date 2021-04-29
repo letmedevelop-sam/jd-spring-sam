@@ -8,12 +8,15 @@
     <bean id="java" class="com.cybertek.services.Java">
         <constructor-arg ref="officeHours"/>
     </bean>
+    <!-- Always inject your constructors through Interface-->
 
 
 
     <bean id="selenium" class="com.cybertek.services.Selenium" ></bean>
 
     <bean id="officeHours" class="com.cybertek.services.OfficeHours"></bean>
+
+    <!-- Dont forget to add bean-->
 
 
 </beans>
