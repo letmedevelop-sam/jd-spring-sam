@@ -6,7 +6,7 @@
 
 
     <bean id="java" class="com.cybertek.services.Java">
-        <property name="officeHours" ref = "officeHours"/>
+        <property name="extraSessions" ref = "officeHours"/>
     </bean>
     <!-- Inject your setter *** property name *** is setter method name except **set**, ref is the object (parameter) in setter-->
 

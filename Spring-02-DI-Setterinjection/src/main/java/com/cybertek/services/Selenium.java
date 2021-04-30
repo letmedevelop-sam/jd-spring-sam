@@ -4,7 +4,7 @@ import com.cybertek.interfaces.Course;
 
 
 public class Selenium implements Course {
-    private OfficeHours officeHours;
+    private OfficeHours officeHours; //We can use ExtraSessions interface. //It will be a better practice
 
     /*
     we can use alt + ins to generate setter or we can use lombok
