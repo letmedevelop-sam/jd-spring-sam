@@ -6,13 +6,13 @@
 
 
     <bean id="java" class="com.cybertek.services.Java">
-        <constructor-arg ref="officeHours"/>
+        <property name="officeHours" ref = "officeHours"/>
     </bean>
-    <!-- Always inject your constructors through Interface-->
+    <!-- Inject your setter *** property name *** is setter method name except **set**, ref is the object (parameter) in setter-->
 
-
-
-    <bean id="selenium" class="com.cybertek.services.Selenium" ></bean>
+    <bean id="selenium" class="com.cybertek.services.Selenium" >
+        <property name="officeHours" ref = "officeHours"/>
+    </bean>
 
     <bean id="officeHours" class="com.cybertek.services.OfficeHours"></bean>
 

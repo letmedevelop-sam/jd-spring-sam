@@ -1,26 +1,27 @@
 package com.cybertek.services;
 
 import com.cybertek.interfaces.Course;
-import com.cybertek.interfaces.ExtraSessions;
+import lombok.Data;
 
+
+@Data
 public class Java implements Course {
 
-   // OfficeHours officeHours;
-    //to keep it more efficient and Loosely Coupled create obj from Extra Session
-    ExtraSessions extraSessions;
-/*
-Also create constructor again
-    public Java(OfficeHours officeHours) {
-        this.officeHours = officeHours;
-    }
-*/
+   private OfficeHours officeHours;
 
-    public Java(ExtraSessions extraSessions) {
-        this.extraSessions = extraSessions;
+    public OfficeHours getOfficeHours() {   //getter method auto generated // we can also use lombok @Getter
+        return officeHours;
+    }
+
+    public void setOfficeHours(OfficeHours officeHours) { //setter method auto generated // we can also use lombok @Getter
+
+        this.officeHours = officeHours;
     }
 
     @Override
     public void getTeachingHours() {
-        System.out.println("Weekly Teaching Hours : " + (20 + extraSessions.getHours())); //also change officeHours
+
+        System.out.println("Weekly Teaching Hours : " + (20 + officeHours.getHours()));
+        System.out.println("In addition to 20 java hours Additional " + officeHours.getHours() + " is coming from officeHours");
     }
 }
