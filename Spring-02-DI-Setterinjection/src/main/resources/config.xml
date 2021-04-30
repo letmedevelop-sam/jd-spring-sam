@@ -6,9 +6,9 @@
 
 
     <bean id="java" class="com.cybertek.services.Java">
-        <property name="officeHours" ref = "officeHours"/>
+        <constructor-arg ref="officeHours"/>
     </bean>
-    <!-- Inject your setter ****** property name is setter method name except set-->
+    <!-- Always inject your constructors through Interface-->
 
 
 
