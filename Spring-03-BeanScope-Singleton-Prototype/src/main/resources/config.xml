@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="java" class="com.cybertek.services.Java" scope="prototype">   </bean>
+
+    <bean id="selenium" class="com.cybertek.services.Selenium" > </bean>
+
+
+    <!-- When you use PROTOTYPE there will be 2 beans for Java-->
+
+    <!-- Dont forget to add bean-->
+
+
+</beans>
