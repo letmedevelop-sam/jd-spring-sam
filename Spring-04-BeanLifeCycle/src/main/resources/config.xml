@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="java" class="com.cybertek.services.Java" init-method="myInitMethod" destroy-method="myDestroyMethod">   </bean>
+
+    <!-- When you start adding init-method IJ will find all available methods and suggest you to use-->
+    <!-- When you start adding destroy-method IJ will find all available methods and suggest you to use-->
+    <!-- Dont forget to add bean-->
+
+</beans>
