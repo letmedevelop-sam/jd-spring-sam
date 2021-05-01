@@ -12,7 +12,7 @@ public class CybertekApp {
         courseJava.getTeachingHours();
         Course courseSelenium = container.getBean("selenium", Course.class);
         courseSelenium.getTeachingHours();
-        Course courseApi = container.getBean("api", Course.class );
+        Course courseApi = container.getBean("API", Course.class ); //If class name was all upper case -> use uppercase
         courseApi.getTeachingHours();
     }
 }
