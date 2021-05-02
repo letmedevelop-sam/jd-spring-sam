@@ -2,6 +2,7 @@ package com.cybertek.services;
 
 import com.cybertek.interfaces.Course;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -9,12 +10,13 @@ import java.util.Arrays;
 
 @Component
 @AllArgsConstructor
+@NoArgsConstructor
 public class Java implements Course {
 
     @Value("JD1")
     private String batch;
 
-    @Value("${instructor")
+    @Value("${instructor}")
     private String instructor;
 
     @Value("${days}")
@@ -32,6 +34,7 @@ public class Java implements Course {
 
     @Override
     public void getTeachingHours() {
+
         System.out.println("Weekly Java Teaching Hours : 30");
     }
 }

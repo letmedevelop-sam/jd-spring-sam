@@ -9,6 +9,7 @@
     <contex:component-scan base-package="com.cybertek.services"/>
 
 
+
     <!-- We write contex: and rest is coming to describe where annotations will be searched-->
     <!-- We dont need id and class anymore-->
     <!-- Dont forget to add bean-->

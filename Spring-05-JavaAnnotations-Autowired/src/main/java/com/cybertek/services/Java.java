@@ -1,14 +1,15 @@
 package com.cybertek.services;
 
 import com.cybertek.interfaces.Course;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
+
 public class Java implements Course {
 
 
+    @Autowired
     private OfficeHours officeHours; //there is no connection between Java and OfficeHours yet
 
     //It is always better to use the Interface
