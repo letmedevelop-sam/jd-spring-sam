@@ -21,12 +21,13 @@ remove the confusion by specifying which exact bean will be wired.
  */
 
         ApplicationContext container = new ClassPathXmlApplicationContext("config.xml");
-
         Course courseJava = container.getBean("java", Course.class); // we lowercase the ClassName and use it like java
-        courseJava.getTeachingHours();
+
+       // courseJava.toString();  //It will not run because not void
+        System.out.println("courseJava.toString() = " + courseJava.toString());
 
 
-/*        Course courseSelenium = container.getBean("selenium", Course.class);
+/*      Course courseSelenium = container.getBean("selenium", Course.class);
         courseSelenium.getTeachingHours();
 */
 
