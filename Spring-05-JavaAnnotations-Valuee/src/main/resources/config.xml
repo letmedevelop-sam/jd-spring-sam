@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:contex="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<bean  id="java"     class="com.cybertek.services.Java" >   </bean>  -->
+    <contex:component-scan base-package="com.cybertek.services"/>
+
+
+    <!-- We write contex: and rest is coming to describe where annotations will be searched-->
+    <!-- We dont need id and class anymore-->
+    <!-- Dont forget to add bean-->
+
+    <contex:property-placeholder location="classpath:application.properties"/>
+
+
+</beans>
