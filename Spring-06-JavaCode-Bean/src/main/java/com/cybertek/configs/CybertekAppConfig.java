@@ -20,7 +20,7 @@ then tell spring the package where to look for beans
 Then it will go and look for @Component Annotations in the classes
 If there is no annotation you will receive :
 Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'java' available
-Instead of adding all classes @Component annotation we can create methods with @Bean annotations which will provide us Beans
+In case we are not able to add related classes @Component annotation we can create methods with @Bean annotations which will provide us Beans
 
 
 Finally, go to CybertekApp:
