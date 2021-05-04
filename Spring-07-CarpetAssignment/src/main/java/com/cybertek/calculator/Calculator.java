@@ -25,7 +25,7 @@ public class Calculator {
         BigDecimal cost = carpet.getSqFtPrice(city).multiply(floor.getArea());
 
         if(cost.compareTo(BigDecimal.ZERO)==0){
-            throw  new Exception("This City doeas NOT exist");
+            throw  new Exception("This City does NOT exist");
         }
 
         return "Total Cost for the Carpet : " + cost;
