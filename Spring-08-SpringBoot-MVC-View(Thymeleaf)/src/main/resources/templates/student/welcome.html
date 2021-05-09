@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Student Welcome</title>
@@ -15,6 +15,8 @@
 <h1 th:text="${numbers.get(0)}"></h1>
 <h1 th:text="${birthday}"></h1>
 <h1 th:text="'Sam was born on : '+ ${birthday}"></h1>
+<h2 th:text="${student.getFirstName}"></h2>
+<h2 th:text="${student.firstName}"></h2>
 
 
 </body>
