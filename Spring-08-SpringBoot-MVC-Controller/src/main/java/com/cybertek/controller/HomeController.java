@@ -10,6 +10,16 @@ public class HomeController {
     //we may have hundreds of classes, we send request
     //Front controller will look for it, but where?   @RequestMapping annotation will do it. It can be class level or method level
 
+    /*
+    * No parameter
+    * Request Mapping
+    * Get Mapping
+    * Post Mapping
+    * Single end-point
+    * Single end-point with parameter
+    * With Request param
+    * How to add request mapping at class level  (student/mentor classes)
+     */
     @RequestMapping("/")
     public  String getRequestMapping(){
     //This method  will look for where to go, so use  @RequestMapping annotation
