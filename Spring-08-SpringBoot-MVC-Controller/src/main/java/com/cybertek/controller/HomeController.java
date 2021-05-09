@@ -1,10 +1,7 @@
 package com.cybertek.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller //Business Logic will happen here. Controller is coming from this structure. Bean will be created from here
 public class HomeController {
@@ -57,6 +54,25 @@ public class HomeController {
         System.out.println("The  section  name  given in the URI is  : " + sectName);
         return "home-variable-sub";
     }
+
+
+    //requestparam   ***  QUERY PARAMETER FORMAT  ***
+    // we will search for this page as http://localhost:8080/home/course?course=spring
+    //console output: The name of the course is spring
+    @GetMapping("home/course")
+    public  String requestParamEx(@RequestParam("course") String courseName){
+        System.out.println("The name of the course is " + courseName);
+        return "home-param";
+    }
+
+
+
+    //If we dont use second parameter the default one will come automatically
+    @GetMapping(value = "/course")
+    public String requestParam2(@RequestParam(value = "name", required = false, defaultValue = "Cybertek") String name){
+        System.out.println("name is : " + name);
+        return "home-default";
+}
 
 
 }
