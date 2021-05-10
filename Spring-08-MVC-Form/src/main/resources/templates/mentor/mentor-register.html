@@ -11,8 +11,11 @@
 <div align="center">
     !! MENTOR REGISTRATION !!
     <br>
-    <form th:object="${mentor}">
-
+    <form action="/mentor/confirm"  method="post" th:object="${mentor}">
+        <!-- to let some action take place when we click on the BUTTON**** -->
+        <!--//ADD action to fornm to find which request mapping we will go ** also add method choose post-->
+        <!-- •When the form is loaded, Spring MVC will call getter methods-->
+        <!-- •When the form is submitted, Spring MVC will call setter methods-->
         <label>First Name</label>
         <input type="text" id="firstname" th:field="*{firstName}"><br><br>
 
@@ -41,7 +44,7 @@
         <br>
         <textarea th:field="*{company}"></textarea> <br><br>
 
-        <button type="submit">Register</button>
+        <button type="submit">Register</button>   <!-- to let some action take place when we click on the BUTTON****  //ADD action to from-->
 
 
 

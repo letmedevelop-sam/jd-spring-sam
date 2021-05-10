@@ -4,6 +4,8 @@ import com.cybertek.model.Mentor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
@@ -21,10 +23,16 @@ public class MentorController {
         List<String > batchtList = Arrays.asList("B7", "B8","B9","B10","B11","B12","E1", "E2", "E3", "E4");
         model.addAttribute("batchList",batchtList);
 
-
         return "mentor/mentor-register";
     }
 
+
+//to retrieve data from other method we will use @ModelAttribute
+    @PostMapping("/confirm")
+    public  String submitForm(@ModelAttribute("mentor") Mentor mentor){
+        System.out.println(mentor.toString());
+        return "mentor/mentor-confirmation";
+    }
 
 
 }
