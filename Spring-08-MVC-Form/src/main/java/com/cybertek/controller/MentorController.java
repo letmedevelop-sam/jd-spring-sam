@@ -23,7 +23,7 @@ public class MentorController {
         List<String > batchList = Arrays.asList("B7", "B8","B9","B10","B11","B12","E1", "E2", "E3", "E4");
         model.addAttribute("batchList",batchList);
 
-        return "mentor/mentor-register";
+        return "/mentor/mentor-register";
     }
 
 
