@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor List</title>
+</head>
+<body>
+
+<!-- Create a basic HTML table at first -->
+<!-- Then convert basic HTML table to Thymeleaf -->
+<table>
+  <thead>
+    <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Age</td>
+      <td>Gender</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="mentor : ${mentors}">
+        <td th:text="${mentor.firstName}"></td>
+        <td th:text="${mentor.lastName}"></td>
+        <td th:text="${mentor.age}"></td>
+        <td th:text="${mentor.gender}"></td>
+    </tr>
+  </tbody>
+
+
+</table>
+<br><br>
+<br>
+
+
+
+<a th:href="@{/student/welcome}">WELCOME</a>
+
+
+</body>
+</html>
