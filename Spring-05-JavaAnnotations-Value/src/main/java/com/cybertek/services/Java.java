@@ -2,14 +2,14 @@ package com.cybertek.services;
 
 import com.cybertek.interfaces.Course;
 import com.cybertek.interfaces.ExtraSessions;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-
-
 public class Java implements Course {
 
     @Value("JD1")         //This is Hard Coded -> we assign a value.

@@ -37,4 +37,8 @@
 
     </dependencies>
 
+    <build>
+        <directory>${project.basedir}/target</directory>
+        <outputDirectory>${project.build.directory}/classes</outputDirectory>
+    </build>
 </project>
