@@ -23,7 +23,7 @@ public class Spring09OrmTableCreationApplication {
         SpringApplication.run(Spring09OrmTableCreationApplication.class, args);
     }
 
-    @PostConstruct
+    @PostConstruct      //it will run once and before everything.
     public void dataInit(){
 
         Car c1 = new Car("BMW", "M5");
