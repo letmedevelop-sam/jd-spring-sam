@@ -24,6 +24,11 @@ public class Employee extends BaseEntity{
     private LocalDate hireDate;
 //    private String department;        //This column will come from JOIN
 
+                //cascade ALL will tell Hibernate when you do something in one table, go and do the same in the other table
+    @OneToOne(cascade = CascadeType.ALL) //For taking not all of them use one by one {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}
+    @JoinColumn(name = "departmentID")
+    private Department department; //it is complaining and we need to add @OneToOne annotation to describe how tables will join (one Emp will work in One Dept
+
     @Enumerated (EnumType.STRING)
     private Gender gender;
     private int salary;

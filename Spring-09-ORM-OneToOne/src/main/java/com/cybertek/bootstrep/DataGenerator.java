@@ -16,9 +16,11 @@ import java.util.List;
 @Component
 public class DataGenerator implements CommandLineRunner {
 
+    //There is constructor injection. No need to use @Autowired
     EmployeeRepository employeeRepository;
     DepartmentRepository departmentRepository;
 
+    //No need to use @Autowired Annotation for constructor injection.
     public DataGenerator(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
         this.employeeRepository = employeeRepository;
         this.departmentRepository = departmentRepository;
@@ -42,6 +44,12 @@ public class DataGenerator implements CommandLineRunner {
         Department d3 = new Department("Clothing","Home");
         Department d4 = new Department("Phones & Tablets","Electronics");
         Department d5 = new Department("Computers","Electronics");
+
+        e1.setDepartment(d1);
+        e2.setDepartment(d2);
+        e3.setDepartment(d3);
+        e4.setDepartment(d4);
+        e5.setDepartment(d5);
 
         employeeList.addAll(Arrays.asList(e1,e2,e3,e4,e5));
         departmentList.addAll(Arrays.asList(d1,d2,d3,d4,d5));
