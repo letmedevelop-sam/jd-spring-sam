@@ -19,7 +19,7 @@ public class Department extends BaseEntity{
     private String department;
     private String division;
 
-    @OneToOne(mappedBy = "department") //means DO NOT create a Foreign key  column in my table
+    @OneToOne(mappedBy = "department")          //means DO NOT create a Foreign key  column in my table
     private Employee employee;
 
     public Department(String department, String division) {

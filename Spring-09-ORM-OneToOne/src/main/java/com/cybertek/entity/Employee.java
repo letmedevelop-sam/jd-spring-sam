@@ -34,7 +34,7 @@ public class Employee extends BaseEntity{
     private int salary;
 //    private int regionId;         //This column will come from JOIN
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //fetch = FetchType.LAZY do when needed  or else fetch = FetchType.EAGER
     @JoinColumn(name = "regionId")
     private Region region;
 
