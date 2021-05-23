@@ -30,13 +30,25 @@ public class Person {
     @JoinColumn(name = "person_id")
     private List<Address> addresses;
     */
+/*
 
-    @OneToMany
+    case - 1 create address then create person. person id in address will be null
+
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id")
     private List<Address> addresses;
-
+*/
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+//we will try again and we need to open @ManytoOne line 22 in Address class
+    //@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)   WILL CHANGE AS BELOW
+
+    @OneToMany(mappedBy = "person") //We dont need    cascade = CascadeType.ALL    part
+    private List<Address> addresses;
+
+
+
 }
