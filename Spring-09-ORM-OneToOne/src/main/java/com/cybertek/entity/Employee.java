@@ -34,6 +34,10 @@ public class Employee extends BaseEntity{
     private int salary;
 //    private int regionId;         //This column will come from JOIN
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "regionId")
+    private Region region;
+
     //create constructor
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, Gender gender, int salary) {
         this.firstName = firstName;
