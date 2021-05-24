@@ -4,10 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -21,6 +20,10 @@ public class Tag {
     private Long id;
 
     private String name;
+
+// THIS PART MAY BE OPTIONAL. EVEN WE DONT WRITE, THE TABLES WILL BE JOINED AS WE USED @ManyToMany IN Post CLASS
+    @ManyToMany(mappedBy = "tags", cascade = CascadeType.ALL)
+    private Set<Post> posts = new HashSet<>();
 
 
     public Tag(String name) {
