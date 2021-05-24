@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
-
+/*
     //    ---------------------------------DERIVED QUERIES------------------------
 //    Write a derived query to read a user with an email?
     Optional<User> findByEmail(String email);
@@ -47,4 +47,9 @@ public interface UserRepository extends JpaRepository<User,Long> {
     //    Write a native query to read a user by email?
     @Query(value = "SELECT * FROM user_account WHERE email = ?1", nativeQuery = true)
     User retrieveByEmail(String email);
+
+
+ */
+
+
 }

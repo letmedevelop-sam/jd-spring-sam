@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
-
+/*
     // ------------------- DERIVED QUERIES ------------------- //
 
     //Write a derived query to read movie cinema with id
@@ -53,7 +53,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
     //Write a native query that returns all movie cinemas by location name
     @Query(value = "SELECT * FROM movie_cinema JOIN cinema c on c.id = movie_cinema.cinema_id  JOIN location l on c.location_id=l.id WHERE l.name = ?1",nativeQuery = true)
     List<MovieCinema> retrieveAllByLocationName(String locationName);
-
+*/
 }
 
 
