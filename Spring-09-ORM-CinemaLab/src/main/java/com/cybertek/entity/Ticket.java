@@ -20,7 +20,7 @@ public class Ticket extends BaseEntity{
     private Integer rowNumber;
 
     @Column(columnDefinition = "TIMESTAMP")
-    private LocalDateTime localDateTime;
+    private LocalDateTime DateTime;
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "movie_cinema_id")
@@ -34,6 +34,6 @@ public class Ticket extends BaseEntity{
     public Ticket(Integer seatNumber, Integer rowNumber, LocalDateTime localDateTime) {
         this.seatNumber = seatNumber;
         this.rowNumber = rowNumber;
-        this.localDateTime = localDateTime;
+        this.DateTime = localDateTime;
     }
 }
