@@ -11,13 +11,13 @@ import java.util.Optional;
 
 @Repository
 public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
-/*
+
     // ------------------- DERIVED QUERIES ------------------- //
 
     //Write a derived query to read movie cinema with id
 
     Optional<MovieCinema> findById(Long id);
-
+/*
     //Write a derived query to count all movie cinemas with a specific cinema id
     Integer countAllByCinemaId(Long cinemaId);
 
