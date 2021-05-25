@@ -17,7 +17,7 @@ public class Cinema extends BaseEntity{
 
     private String name;
     private String sponsoredName;
-
+        //WE USED CASCADING    =>       whenever we  create a user, first create all the children for us
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Location location;
 
