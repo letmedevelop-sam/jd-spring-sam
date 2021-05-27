@@ -92,7 +92,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     void updateEmployeeNativeQuery(@Param("id") Integer id);
 
     //Named Query
-    List<Employee> retrieveEmployeeSalaryGreaterThan(Integer salary);
+    List<Employee> retrieveEmployeeSalaryGreaterThan(Integer salary);   // we add a related line to jpa-named queries.properties file
 
 
 
