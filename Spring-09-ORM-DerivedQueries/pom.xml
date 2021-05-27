@@ -11,7 +11,7 @@
     <groupId>com</groupId>
     <artifactId>derivedqueries</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>derivedquery</name>
+    <name>Spring-09-ORM-DerivedQueries</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -54,7 +54,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.4.1</version>
                 <configuration>
                     <excludes>
                         <exclude>
