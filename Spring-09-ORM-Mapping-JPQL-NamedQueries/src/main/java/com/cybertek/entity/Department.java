@@ -21,6 +21,7 @@ import javax.persistence.*;
         query="SELECT * FROM departments",   //  departments    ...  table name NOT  CLASS name
         resultClass = Department.class)   // returning class
 
+
 public class Department {
     @Id
     private String department;
