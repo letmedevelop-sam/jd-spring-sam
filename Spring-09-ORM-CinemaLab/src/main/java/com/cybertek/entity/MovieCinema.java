@@ -29,7 +29,7 @@ public class MovieCinema extends BaseEntity{
         this.dateTime = dateTime;
     }
 
-    @Override
+    @Override                       // the other part of the toString was added previously NOT from LOMBOK
     public String toString() {
         return "MovieCinema{" +
                 "dateTime=" + dateTime +

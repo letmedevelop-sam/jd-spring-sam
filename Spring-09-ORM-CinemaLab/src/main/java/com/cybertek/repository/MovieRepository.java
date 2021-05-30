@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie,Long> {
-/*
+
     // ------------------- DERIVED QUERIES ------------------- //
 
     //Write a derived query to read a movie with a name
@@ -61,7 +61,7 @@ public interface MovieRepository extends JpaRepository<Movie,Long> {
     @Query(value = "SELECT * FROM movie ORDER BY price DESC LIMIT 5",nativeQuery = true)
     List<Movie> top5ExpensiveMovie();
 
-*/
+
 
 
 }
