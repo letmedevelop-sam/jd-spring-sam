@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class MovieCinema extends BaseEntity{
 
-    @ManyToOne(fetch = FetchType.LAZY)                 //DEFAULT is LAZY
+    @ManyToOne(fetch = FetchType.LAZY)                 //DEFAULT is EAEGER
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
