@@ -56,7 +56,4 @@ public class Movie extends  BaseEntity{
         this.price = price;
     }
 
-
-
-
 }

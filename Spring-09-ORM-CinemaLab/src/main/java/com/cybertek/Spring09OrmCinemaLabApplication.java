@@ -1,9 +1,7 @@
 package com.cybertek;
 
-import com.cybertek.repository.AccountRepository;
-import com.cybertek.repository.CinemaRepository;
-import com.cybertek.repository.MovieCinemaRepository;
-import com.cybertek.repository.TicketRepository;
+import com.cybertek.repository.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -36,6 +34,7 @@ public class Spring09OrmCinemaLabApplication {
         System.out.println(ticketRepository.fetchAllTicketsByUserJPQL(4l));
         System.out.println(ticketRepository.fetchAllTicketsWithRangeDates(LocalDateTime.now().minusDays(25),LocalDateTime.now()));
         System.out.println(ticketRepository.retrieveAllBySearchCriteria("it"));
+        System.out.println(ticketRepository.countTicketByUserInDateRanges(4l, LocalDateTime.now().minusDays(15),LocalDateTime.now()));
   }
 
 

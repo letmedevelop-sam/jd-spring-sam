@@ -10,9 +10,9 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
-/*
-    //    ---------------------------------DERIVED QUERIES------------------------
-//    Write a derived query to read a user with an email?
+
+    //    -------------DERIVED QUERIES---------
+    //    Write a derived query to read a user with an email?
     Optional<User> findByEmail(String email);
     //    Write a derived query to read a user with an username?
     Optional<User> findByUsername(String username);
@@ -22,8 +22,10 @@ public interface UserRepository extends JpaRepository<User,Long> {
     List<User> findAllByAccountDetailsNameContainingIgnoreCase(String name);
     //    Write a derived query to list all users with an age greater than a specified age?
     List<User> findAllByAccountDetailsAgeGreaterThan(Integer age);
-    //    ----------------------------------- JPQL QUERIES--------------------------
-//    Write a JPQL query that returns a user read by email?
+
+    //    ---------------- JPQL QUERIES---------
+
+    //    Write a JPQL query that returns a user read by email?
     @Query("SELECT u FROM User u WHERE u.email = ?1")
     Optional<User> fetchByEmailJPQL(String email);
     //    Write a JPQL query that returns a user read by username?
@@ -32,8 +34,10 @@ public interface UserRepository extends JpaRepository<User,Long> {
     //    Write a JPQL query that returns all users?
     @Query("SELECT u FROM User u")
     List<User> fetchALlUsers();
-    //    ------------------------------NATIVE QUERIES------------------------
-//    Write a native query that returns all users that contain a specific name?
+
+    //    ------------NATIVE QUERIES-------------
+
+    //    Write a native query that returns all users that contain a specific name?
     @Query(value = "SELECT * FROM user_account u " +
             "JOIN account_details ad ON ad.id = u.account_details_id WHERE ad.name ILIKE concat('%', ?1, '%')", nativeQuery = true)
     List<User> retrieveAllByName(String name);
@@ -49,7 +53,7 @@ public interface UserRepository extends JpaRepository<User,Long> {
     User retrieveByEmail(String email);
 
 
- */
+
 
 
 }

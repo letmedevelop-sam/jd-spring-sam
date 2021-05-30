@@ -61,9 +61,6 @@ public interface MovieRepository extends JpaRepository<Movie,Long> {
     @Query(value = "SELECT * FROM movie ORDER BY price DESC LIMIT 5",nativeQuery = true)
     List<Movie> top5ExpensiveMovie();
 
-
-
-
 }
 
 
