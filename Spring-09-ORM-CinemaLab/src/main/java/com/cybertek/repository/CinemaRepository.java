@@ -29,14 +29,14 @@ public interface CinemaRepository extends JpaRepository<Cinema,Long> {
     List<Cinema> findAllByNameOrSponsoredName(String name,String sponsoredname);
 
 
-//    // ------------------- JPQL QUERIES ------------------- //
-//
-//    //Write a JPQL query to read the cinema name with a specific id
-//    @Query("SELECT c.name FROM Cinema c WHERE c.id=?1")
-//    String fetchByIdJPQL(Integer id);
-//
-//    // ------------------- Native QUERIES ------------------- //
-//
+    // ------------------- JPQL QUERIES ------------------- //
+
+    //Write a JPQL query to read the cinema name with a specific id
+    @Query("SELECT c.name FROM Cinema c WHERE c.id=?1")
+    String fetchByIdJPQL(Integer id);
+
+    // ------------------- Native QUERIES ------------------- //
+
 //    //Write a native query to read all cinemas by location country
 //    @Query(value = "SELECT * FROM cinema c JOIN location l on l.id=c.location_id WHERE l.country=?1",nativeQuery = true)
 //    List<Cinema> retrieveAllByLocationCountry(String locationCountry);
@@ -52,10 +52,7 @@ public interface CinemaRepository extends JpaRepository<Cinema,Long> {
 //    //Write a native query to distinct all cinemas by sponsored name
 //    @Query(value = "SELECT DISTINCT sponsored_name FROM cinema",nativeQuery = true)
 //    List<String> distinctBYSponsoredName();
-//
-//
-//
-//
-//
-//
+
+
+
 }
