@@ -13,10 +13,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Ticket extends BaseEntity{
 
-    @Column(columnDefinition = "seat_number")
+
+    //INSERT INTO ticket (date_time, row_number, seat_number, movie_cinema_id, user_account_id)
+    @Column(name = "seat_number")
     private Integer seatNumber;
 
-    @Column(columnDefinition = "row_number")
+    @Column(name = "row_number")
     private Integer rowNumber;
 
     @Column(columnDefinition = "TIMESTAMP")
