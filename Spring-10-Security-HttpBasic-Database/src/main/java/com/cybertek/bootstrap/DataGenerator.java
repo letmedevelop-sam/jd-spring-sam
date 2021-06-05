@@ -39,6 +39,11 @@ public class DataGenerator implements CommandLineRunner {
 
 
     }
-
+ /*    We moved it to the security config class
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+*/
 
 }
