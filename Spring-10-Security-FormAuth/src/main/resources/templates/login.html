@@ -16,7 +16,7 @@
                         <div th:if="${param.error}" class="alert alert-danger">   <!-- wrong name warning  -->
                             Invalid username and password.
                         </div>
-                        <div th:if="${param.logout}" class="alert alert-success">     <!-- warning that user is logging out  -->
+                        <div th:if="${param.logout}" class="alert alert-success">     <!-- warning that user is logged out  -->
                             You have been logged out.
                         </div>
                         <!-- Login Controls -->
@@ -39,6 +39,7 @@
                             </label>
                         </div>
                         <!-- Login Button -->
+                        <!-- write some code in fragments for not seeing login or log out when not needed-->
                         <div class="form-actions" style="margin-top: 12px;">
                             <button type="submit" class="btn btn-success">Log in</button>
                         </div>
