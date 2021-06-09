@@ -1,6 +1,7 @@
 package com.cybertek.controller;
 
 import com.cybertek.entity.Product;
+import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.service.ProductService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -87,6 +88,61 @@ public class ProductController {
         List<Product> list = productService.updateProduct(id, product);
 
         return new ResponseEntity<>(list, map, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/read")        //test GET  from -> Postman http://localhost:8080/api/products/read
+    public ResponseEntity<ResponseWrapper> readAllProducts(){
+        return ResponseEntity
+                .ok(new ResponseWrapper("Products Successfully Retrieved", productService.getProducts()));
+    }
+
+    /*
+    {
+    "success": true,
+    "message": "Products Successfully Retrieved",
+    "code": 200,
+    "data": [
+        {
+            "id": 1,
+            "name": "DELL"
+        },
+        {
+            "id": 2,
+            "name": "MACBOOK"
+        },
+        {
+            "id": 3,
+            "name": "Iphone"
+        },
+        {
+            "id": 4,
+            "name": "IPAD"
+        }
+    ]
+}
+     */
+
+
+    @DeleteMapping("/delete/{id}")        //test DELETE  from -> Postman http://localhost:8080/api/products/delete/1
+    public ResponseEntity<ResponseWrapper> deleteProductMessage(@PathVariable("id") long id){
+        return ResponseEntity
+                .ok(new ResponseWrapper("Products Successfully Deleted"));
+    }
+    /*
+    {
+    "success": true,
+    "message": "Products Successfully Deleted",
+    "code": 200,
+    "data": null
+}
+     */
+
+    @DeleteMapping("/delete3/{id}")        //test DELETE  from -> Postman http://localhost:8080/api/products/delete3/1
+    public ResponseEntity<ResponseWrapper> deleteProduct3(@PathVariable("id") long id){
+        return ResponseEntity
+                .status(HttpStatus.ACCEPTED)
+                .body(new ResponseWrapper("Products Successfully Deleted"));
     }
 
 }
