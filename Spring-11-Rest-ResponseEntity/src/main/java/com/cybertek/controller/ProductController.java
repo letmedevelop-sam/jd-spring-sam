@@ -5,6 +5,8 @@ import com.cybertek.service.ProductService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -55,20 +57,36 @@ public class ProductController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .header("Version", "Cybertek.v1")
-                .header("Operation", "Get List")
+                .header("Operation", "Create")
                 .body(set);
     }
 
 
         //DELETE    //We replaced @RequestMapping with    @DeleteMapping
     @DeleteMapping(value = "/{id}")      //we deleted (value = "/products") and ,method = RequestMethod.DELETE
-    public List<Product> deleteProduct(@PathVariable("id") long id){        // we deleted @ResponseBody
-        return productService.delete(id);
+    public ResponseEntity<List<Product>> deleteProduct(@PathVariable("id") long id){        // we deleted @ResponseBody
+
+        HttpHeaders responseHttpHeaders = new HttpHeaders();
+        responseHttpHeaders.set("Version", "Cybertek.v1");
+        responseHttpHeaders.set("Operation", "Delete");
+
+        List<Product> list = productService.delete(id);
+
+        return new ResponseEntity<>(list, responseHttpHeaders, HttpStatus.OK);
     }
+
+
         //PUT            //We replaced @RequestMapping with    @PutMapping
     @PutMapping(value = "/{id}")        //we deleted (value = "/products") and ,method = RequestMethod.PUT
-    public  List<Product> updateProduct(@PathVariable("id") long id,@RequestBody Product product){       // we deleted @ResponseBody
-        return productService.updateProduct(id, product);
+    public  ResponseEntity<List<Product>> updateProduct(@PathVariable("id") long id,@RequestBody Product product){       // we deleted @ResponseBody
+
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+        map.add("Version", "Cybertek.v1");
+        map.add("Operation", "Update");
+
+        List<Product> list = productService.updateProduct(id, product);
+
+        return new ResponseEntity<>(list, map, HttpStatus.OK);
     }
 
 }
