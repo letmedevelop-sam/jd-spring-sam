@@ -3,6 +3,7 @@ package com.cybertek.controller;
 import com.cybertek.entity.Product;
 import com.cybertek.service.ProductService;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,13 +22,16 @@ public class ProductController {
     }
 
         //GET           //We replaced @RequestMapping with    @GetMapping
+        //bring certain product  and add headers
     @GetMapping(value = "/{id}")       //We will not need products "/products/{id}"
                             //As default it is GET ->@RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
-    public Product getProduct(@PathVariable("id") long id){
-        return  productService.getProduct(id);
+    public ResponseEntity <Product> getProduct(@PathVariable("id") long id){
+        return  ResponseEntity
+                .ok(productService.getProduct(id));
     }
 
-    //bring all
+
+    //bring all and add headers
     @GetMapping      //We replaced @RequestMapping with    @GetMapping        //we deleted (value = "/products")
     public ResponseEntity<List<Product>> getProducts(){ // public List<Product> getProducts()
 
@@ -41,11 +45,21 @@ public class ProductController {
                 .body(productService.getProducts());        //Body
     }
 
+    //create product
         //POST          //We replaced @RequestMapping with    @PostMapping
     @PostMapping        // we deleted  (method = RequestMethod.POST)
-    public  List<Product> createProduct(@RequestBody Product product){      // we deleted @ResponseBody
-        return productService.createProduct(product);
+    public  ResponseEntity<List<Product>> createProduct(@RequestBody Product product){      // we deleted @ResponseBody
+
+        List<Product> set = productService.createProduct(product);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .header("Version", "Cybertek.v1")
+                .header("Operation", "Get List")
+                .body(set);
     }
+
+
         //DELETE    //We replaced @RequestMapping with    @DeleteMapping
     @DeleteMapping(value = "/{id}")      //we deleted (value = "/products") and ,method = RequestMethod.DELETE
     public List<Product> deleteProduct(@PathVariable("id") long id){        // we deleted @ResponseBody
