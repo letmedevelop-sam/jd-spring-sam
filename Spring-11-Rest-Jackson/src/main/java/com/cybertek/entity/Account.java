@@ -34,7 +34,7 @@ public class Account extends  BaseEntity{
     private UserRole role = UserRole.USER;
 
     @OneToOne(mappedBy = "account")
-    @JsonBackReference
+    @JsonBackReference      //Json igmore will do similar.  @JasonManagedReference will be on the other entity
     private User user;
 
     public Account(String name, String address, String country, String state, String city, Integer age, String postalCode, UserRole role) {
