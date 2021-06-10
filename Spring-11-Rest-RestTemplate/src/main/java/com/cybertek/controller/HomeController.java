@@ -27,28 +27,34 @@ public class HomeController {
         return responseEntity.getBody();    //this method is coming from RestTemplate
     }
 
-//    @GetMapping(value = "/{id}")
-//    public Object readUser(@PathVariable("id") Integer id){
-//        String URL = URI + "/{id}";
-//        return restTemplate.getForObject(URL,Object.class,id);
-//    }
-//
-//    @GetMapping("/test")
-//    public ResponseEntity<Object> consumePostsFromDummyApi(){
-//
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-//        headers.set("app-id","lTE5abbDxdjGplutvTuc");
-//
-//        HttpEntity<String> entity = new HttpEntity<>(headers);
-//
-//        ResponseEntity<Object> response = restTemplate.exchange("https://dummyapi.io/data/api/user?limit=10", HttpMethod.GET,entity,Object.class);
-//
-//        return response;
-//
-//   }
+    //test with a certain id
+    @GetMapping(value = "/{id}")
+    public Object readUser(@PathVariable("id") Integer id){
+        String URL = URI + "/{id}";
+        return restTemplate.getForObject(URL,Object.class,id);
+        //Manually Test in Postman
+        //http://localhost:8080/9
+    }
 
 
+    //Manually Test in Postman
+    //https://dummyapi.io/data/api/user?limit=10
+    //App ID header is missing
 
+    @GetMapping("/test")
+    public ResponseEntity<Object> consumePostsFromDummyApi(){
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        headers.set("app-id","lTE5abbDxdjGplutvTuc");
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<Object> response = restTemplate.exchange("https://dummyapi.io/data/api/user?limit=10", HttpMethod.GET,entity,Object.class);
+
+        return response;
+   }
+
+    //Manually Test in Postman
+   //http://localhost:8080/test
 }
