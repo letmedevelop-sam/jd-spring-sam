@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "user_account")     // WE CANNOT USE user as a table name
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer"}, ignoreUnknown = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer"}, ignoreUnknown = true)   //no serialize de-serialize will be done for unknown
 public class User extends BaseEntity{
 
     private String email;

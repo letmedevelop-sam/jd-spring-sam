@@ -21,7 +21,7 @@ public class Genre extends BaseEntity{
     private String name;
 
     @ManyToMany(mappedBy = "genreList")                 //It can be uni-directional or multi-directional
-    @JsonIgnore
+    @JsonIgnore         //we will not see this field in json
     private List<Movie> movieList = new ArrayList<>();
 
     //IF YOU WORK WITH data.sql THEN YOU DONT NEED TO CREATE CONSTRUCTORS
