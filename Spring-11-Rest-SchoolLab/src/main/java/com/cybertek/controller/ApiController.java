@@ -52,7 +52,7 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(responseWrapper);
     }
 
-    @PutMapping("/address/{id}")
+    @PutMapping("/address/{id}")        //http://localhost:8080/adress/6
     public Address updateAddress(@PathVariable("id") long id, @RequestBody Address address) throws Exception {
 
         Optional<Address> foundAddress = addressRepository.findById(id);
