@@ -18,7 +18,6 @@ import java.util.Optional;
 @RestController
 public class ApiController {
 
-
     private TeacherRepository teacherRepository;
     private StudentRepository studentRepository;
     private ParentRepository parentRepository;
@@ -31,12 +30,12 @@ public class ApiController {
         this.addressRepository = addressRepository;
     }
 
-    @GetMapping("/teachers")
+    @GetMapping("/teachers")        //http://localhost:8080/teachers   to test from Postman
     public List<Teacher> redAllTeachers(){
         return teacherRepository.findAll();
     }
 
-    @GetMapping("/students")
+    @GetMapping("/students")    //http://localhost:8080/students
     public ResponseEntity<ResponseWrapper> readAllStudents(){
 
         return ResponseEntity
