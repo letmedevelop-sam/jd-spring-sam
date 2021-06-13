@@ -30,7 +30,7 @@ public class ApiController {
         this.addressRepository = addressRepository;
     }
 
-    @GetMapping("/teachers")        //http://localhost:8080/teachers   to test from Postman
+    @GetMapping("/teachers")        //http://localhost:8080/teachers   to test from Postman //in address temperature is not visible :it is null and we said dont show null values
     public List<Teacher> redAllTeachers(){
         return teacherRepository.findAll();
     }
@@ -41,6 +41,7 @@ public class ApiController {
         return ResponseEntity
                 .ok(new ResponseWrapper("students are successfully retrieved",studentRepository.findAll()));
     }
+
 
     @GetMapping("/parents")
     public ResponseEntity<ResponseWrapper> readAllParents(){
