@@ -53,13 +53,16 @@ public class Address extends BaseEntity {
 
         RestTemplate restTemplate = new RestTemplate();
 
+
+        //we can also put this API to application.properties file
         String BASE_URL = "http://api.weatherstack.com/current?access_key=02a009b8e3922c395677a1e85406aca6&query=";
 
         String uri = BASE_URL + city;
 
-        Object currentWeather = restTemplate.getForObject(uri,Object.class);
+        Object currentWeather = restTemplate.getForObject(uri, Object.class);
 
-        Map<String,Object> getWeather = (Map<String,Object>) currentWeather;
+        //we need a conversion (casting)
+        Map<String,Object> getWeather = (Map<String, Object>) currentWeather;    //debug it and see how it works
 
         Map<String,Object> getTemperature = (Map<String, Object>) getWeather.get("current");
 

@@ -13,6 +13,7 @@ public class Spring11RestSchoolLabApplication {
     }
 
 
+    //to consume API we need bean
     @Bean
     public RestTemplate restTemplate(){
         return new RestTemplate();
