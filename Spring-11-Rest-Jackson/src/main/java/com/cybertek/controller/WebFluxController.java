@@ -125,7 +125,6 @@ public class WebFluxController {
 //    }
 
 
-    /*
     @DeleteMapping("/delete/{id}")
     public Mono<Void> deleteWebClient(@PathVariable("id") Long id) throws Exception {
 
@@ -139,6 +138,6 @@ public class WebFluxController {
                 .retrieve()
                 .bodyToMono(Void.class);
     }
-     */
+
 
 }
