@@ -30,12 +30,12 @@ public class ApiController {
         this.addressRepository = addressRepository;
     }
 
-    @GetMapping("/teachers")        //http://localhost:8080/teachers   to test from Postman //in address temperature is not visible :it is null and we said dont show null values
+    @GetMapping("/teachers")       //  GET      http://localhost:8080/teachers   to test from Postman //in address temperature is not visible :it is null and we said dont show null values
     public List<Teacher> redAllTeachers(){
         return teacherRepository.findAll();
     }
 
-    @GetMapping("/students")    //http://localhost:8080/students
+    @GetMapping("/students")    //    GET         http://localhost:8080/students
     public ResponseEntity<ResponseWrapper> readAllStudents(){
 
         return ResponseEntity
@@ -43,7 +43,7 @@ public class ApiController {
     }
 
 
-    @GetMapping("/parents")
+    @GetMapping("/parents")         // GET    http://localhost:8080/parents
     public ResponseEntity<ResponseWrapper> readAllParents(){
 
         ResponseWrapper responseWrapper = new ResponseWrapper(true,"Parents are successfully retrieved",
@@ -53,7 +53,7 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(responseWrapper);
     }
 
-    @PutMapping("/address/{id}")        //http://localhost:8080/adress/6
+    @PutMapping("/address/{id}")        // PUT    http://localhost:8080/adress/6
     public Address updateAddress(@PathVariable("id") long id, @RequestBody Address address) throws Exception {
 
         Optional<Address> foundAddress = addressRepository.findById(id);
@@ -67,8 +67,6 @@ public class ApiController {
 
         return addressRepository.save(address);
 
-
     }
-
 
 }
