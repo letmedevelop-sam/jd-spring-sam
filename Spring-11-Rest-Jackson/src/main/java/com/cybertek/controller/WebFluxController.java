@@ -125,6 +125,9 @@ public class WebFluxController {
 //    }
 
 
+    //As there is ManyToMany relationship between MovieCinema and Genre, we write a query in GenreRepository
+    //@Query(value = "select count (*) from genre g join movie_genre_rel mgr on g.id = mgr.genre_id where g.id = ?1", nativeQuery = true)
+
     @DeleteMapping("/delete/{id}")
     public Mono<Void> deleteWebClient(@PathVariable("id") Long id) throws Exception {
 
