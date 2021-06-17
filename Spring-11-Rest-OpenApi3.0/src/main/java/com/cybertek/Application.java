@@ -11,7 +11,10 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+
     }
+
+    // to see Json format ad json viewer extension and navigate to  http://localhost:8080/v3/api-docs
     @Bean
     public OpenAPI customOpenApi(){
 
