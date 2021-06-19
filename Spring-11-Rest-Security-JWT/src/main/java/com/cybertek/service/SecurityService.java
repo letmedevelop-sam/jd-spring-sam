@@ -29,7 +29,8 @@ public class SecurityService implements UserDetailsService {
             throw new UsernameNotFoundException("user not found! " + s);
         }
 
-        return new org.springframework.security.core.userdetails.User(foundUser.getUsername(), foundUser.getPassword(), listAuthorities(foundUser));
+        return new org.springframework.security.core.userdetails
+                .User(foundUser.getUsername(), foundUser.getPassword(), listAuthorities(foundUser));
     }
 
     public User loadUser(String value){
