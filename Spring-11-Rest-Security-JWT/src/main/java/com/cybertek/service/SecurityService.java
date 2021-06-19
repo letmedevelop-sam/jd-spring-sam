@@ -24,7 +24,7 @@ public class SecurityService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
-        User foundUser = loadUser(s);
+        User foundUser = loadUser(s);           //get user and do DB verification
         if(foundUser == null){
             throw new UsernameNotFoundException("user not found! " + s);
         }

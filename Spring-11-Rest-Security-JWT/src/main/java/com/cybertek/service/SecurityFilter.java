@@ -28,7 +28,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         this.securityService = securityService;
     }
 
-    @Override
+    @Override                       //DOING ALL FILTERING
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
                                     HttpServletResponse httpServletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {

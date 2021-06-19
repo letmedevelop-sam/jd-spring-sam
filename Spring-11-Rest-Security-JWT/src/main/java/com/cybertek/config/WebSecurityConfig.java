@@ -12,18 +12,18 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {   //this is first step to enable Security
 
     @Autowired
     private SecurityFilter securityFilter;
 
     @Override
-    @Bean
+    @Bean                                                               //create BEAN
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
-    private static final String[] permittedUrls ={
+    private static final String[] permittedUrls ={              //set permissions
             "/authenticate",
             "/create-user",
             "/api/p1/**",

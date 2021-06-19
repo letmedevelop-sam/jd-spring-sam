@@ -39,7 +39,7 @@ public class JWTUtil {
 
     }
 
-    private Claims extractAllClaims(String token){                          //DECODE token
+    private Claims extractAllClaims(String token){                                   //DECODE token
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
