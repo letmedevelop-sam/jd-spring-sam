@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @Service
 public class SecurityFilter extends OncePerRequestFilter {
 
@@ -26,11 +27,14 @@ public class SecurityFilter extends OncePerRequestFilter {
         this.jwtUtil = jwtUtil;
         this.securityService = securityService;
     }
+
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
                                     HttpServletResponse httpServletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {
 
+
+        //this Authorization must match with the token you put in the HEADER
         String authorizationHeader = httpServletRequest.getHeader("Authorization");
         String token = null;
         String username = null;
@@ -53,6 +57,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
+
 
     private boolean checkIfUserIsValid(String username) {
         User currentUser = securityService.loadUser(username);

@@ -39,21 +39,21 @@ public class JWTUtil {
 
     }
 
-    private Claims extractAllClaims(String token){
+    private Claims extractAllClaims(String token){                          //DECODE token
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
     private <T> T extractClaim(String token, Function<Claims,T> claimsResolver){
         final Claims claims = extractAllClaims(token);
-        return claimsResolver.apply(claims);
+        return claimsResolver.apply(claims);    //Functional Interface with only one abstract method for LAMBDA
     }
 
     public String extractUsername(String token){
-        return extractClaim(token,Claims::getSubject);
+        return extractClaim(token, Claims::getSubject);
     }
 
     public Date extractExpiration(String token){
-        return extractClaim(token,Claims::getExpiration);
+        return extractClaim(token, Claims::getExpiration);
 
     }
 
@@ -61,7 +61,7 @@ public class JWTUtil {
         return extractExpiration(token).before(new Date());
     }
 
-    public Boolean validateToken(String token, UserDetails userDetails){
+    public Boolean validateToken(String token, UserDetails userDetails){        //check if user name is matching and token is not expired
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
