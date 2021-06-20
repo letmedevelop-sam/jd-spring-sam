@@ -1,5 +1,6 @@
 package com.cybertek.exception;
 
+
 import com.cybertek.entity.DefaultExceptionMessageDto;
 import com.cybertek.entity.ResponseWrapper;
 import org.springframework.core.Ordered;
@@ -21,7 +22,7 @@ import java.util.Optional;
 public class ExceptionMessageHandler {
 
 
-                    //ServiceException is the one we created :    com.cybertek.exception
+                    //ServiceException is the one we created    :    com.cybertek.exception / ServiceException
     @ExceptionHandler(ServiceException.class)
     public ResponseEntity<ResponseWrapper> serviceException(ServiceException se){
         String message = se.getMessage();
@@ -29,17 +30,23 @@ public class ExceptionMessageHandler {
         return new ResponseEntity<>(ResponseWrapper.builder().success(false).code(HttpStatus.CONFLICT.value()).message(message).build(),HttpStatus.CONFLICT);
     }
 
+    //if there is a different exception NOT defined here, it will throw own exception
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ResponseWrapper> accessDeniedException(AccessDeniedException se){
         String message = se.getMessage();
         return new ResponseEntity<>(ResponseWrapper.builder().success(false).code(HttpStatus.FORBIDDEN.value()).message(message).build(),HttpStatus.CONFLICT);
     }
 
+
+    //READY CODE came from slack
+    //this code is something generic
+    // get the message from annotation and show it
     @ExceptionHandler({Exception.class, RuntimeException.class, Throwable.class, BadCredentialsException.class})
     public ResponseEntity<ResponseWrapper> genericException(Throwable e, HandlerMethod handlerMethod) {
 
         Optional<DefaultExceptionMessageDto> defaultMessage = getMessageFromAnnotation(handlerMethod.getMethod());
         if (defaultMessage.isPresent() && !ObjectUtils.isEmpty(defaultMessage.get().getMessage())) {
+            //if the message is available from the annotation
             ResponseWrapper response = ResponseWrapper
                     .builder()
                     .success(false)
@@ -52,6 +59,8 @@ public class ExceptionMessageHandler {
     }
     private Optional<DefaultExceptionMessageDto> getMessageFromAnnotation(Method method) {
         com.cybertek.annotation.DefaultExceptionMessage defaultExceptionMessage = method.getAnnotation(com.cybertek.annotation.DefaultExceptionMessage.class);
+
+        //if the message is NOT available from the annotation
         if (defaultExceptionMessage != null) {
             DefaultExceptionMessageDto defaultExceptionMessageDto = DefaultExceptionMessageDto
                     .builder()
