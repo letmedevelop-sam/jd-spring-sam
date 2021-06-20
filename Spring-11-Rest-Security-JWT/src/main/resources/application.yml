@@ -22,10 +22,3 @@ spring:
 security:
   jwt:
     secret-key: cybertek
-
-
-
-
-
-  spring.datasource.username=postgres
-  spring.datasource.password=cihat

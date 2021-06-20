@@ -19,7 +19,7 @@ public class JWTUtil {
     @Value("${security.jwt.secret-key}")  //this will bring from application.yml file
     private String secret = "cybertek";
 
-    public String generateToken(User user){
+    public String generateToken(User user){  //why they (generate and create) are seperate: for payload
 
         Map<String,Object> claims = new HashMap<>();  //payload    //claims --- in spring
         claims.put("username",user.getUsername());
@@ -49,11 +49,11 @@ public class JWTUtil {
     }
 
     public String extractUsername(String token){
-        return extractClaim(token, Claims::getSubject);
+        return extractClaim(token, Claims::getSubject); // it will give you the subject
     }
 
     public Date extractExpiration(String token){
-        return extractClaim(token, Claims::getExpiration);
+        return extractClaim(token, Claims::getExpiration); // it will give you the info about token
 
     }
 

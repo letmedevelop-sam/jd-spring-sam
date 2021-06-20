@@ -18,12 +18,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {   //this i
     private SecurityFilter securityFilter;
 
     @Override
-    @Bean                                                               //create BEAN
+    @Bean                                                               //create BEAN to be able to handle methods. Because there is no FORM
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
     private static final String[] permittedUrls ={              //set permissions
+
             "/authenticate",
             "/create-user",
             "/api/p1/**",
@@ -40,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {   //this i
 
         http
                 .csrf()
-                .disable()
+                .disable()      //we disable the auto protection. Otherwise as We are using different server 8080 and it will be realized as an attack
                 .authorizeRequests()
 //                .antMatchers("/authentication") //This will let everyone  in      //    http://localhost:8080/authentication POST
                 .antMatchers(permittedUrls)
@@ -52,4 +53,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {   //this i
 
 
     }
+
+    //test with     http://localhost:8080/authenticate
+
+    /*
+    {
+        "username":"admin",
+        "password":"admin"
+    }
+
+    {
+    "success": true,
+    "message": "Login Succesfull!",
+    "code": 200,
+    "data": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyNDIyMzE0MSwiaWF0IjoxNjI0MTg3MTQxLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4ifQ.rezNWrcSCLrtaTELpoR8TGKM6-fBT6cDhbFNJU5p16s"
+}
+     */
 }
