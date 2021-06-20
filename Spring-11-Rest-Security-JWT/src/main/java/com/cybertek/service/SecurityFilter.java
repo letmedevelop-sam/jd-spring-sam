@@ -35,6 +35,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 
 
         //this Authorization must match with the token you put in the HEADER
+        //debug from the below line
         String authorizationHeader = httpServletRequest.getHeader("Authorization");
         String token = null;
         String username = null;

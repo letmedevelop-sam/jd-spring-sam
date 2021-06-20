@@ -15,15 +15,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)  //First step : enable
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @GetMapping("/read")
-    @PreAuthorize("hasAuthority('USER')")
-//    @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
+ //   @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAnyAuthority('USER','ADMIN')") // Second step : pre authorize
     public ResponseEntity<ResponseWrapper> readAll(){
 
         List<User> users = userService.getAll();
@@ -32,3 +32,30 @@ public class UserController {
 
     }
 }
+
+//WATCH the DEBUG in Day-38 last 8 minutes
+
+//Test from Postman
+
+// go to postman POST http://localhost:8080/authenticate
+//get the token and insert it to HEADER of your request in Authorization part
+// GET  http://localhost:8080/api/v1/users/read
+
+/*
+{
+    "success": true,
+    "message": "Done",
+    "code": 200,
+    "data": [
+        {
+            "id": 1,
+            "isDeleted": false,
+            "email": "admin@admin.com",
+            "username": "admin",
+            "role": "ADMIN",
+            "isVerified": true,
+            "state": "ACTIVE"
+        }
+    ]
+}
+ */
