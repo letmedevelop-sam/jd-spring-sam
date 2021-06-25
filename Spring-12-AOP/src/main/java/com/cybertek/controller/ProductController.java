@@ -23,6 +23,7 @@ public class ProductController {
 
     Logger logger = LoggerFactory.getLogger(ProductController.class);
 
+
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
@@ -36,6 +37,7 @@ public class ProductController {
                 .ok(productService.getProduct(id));
     }
 
+
     @GetMapping
     public List<Product> getProducts(){
 
@@ -47,6 +49,7 @@ public class ProductController {
 
         return list;
     }
+
 
     //create product
         //POST          //We replaced @RequestMapping with    @PostMapping
@@ -63,6 +66,7 @@ public class ProductController {
     }
 
 
+
         //DELETE    //We replaced @RequestMapping with    @DeleteMapping
     @DeleteMapping(value = "/{id}")      //we deleted (value = "/products") and ,method = RequestMethod.DELETE
     public ResponseEntity<List<Product>> deleteProduct(@PathVariable("id") long id){        // we deleted @ResponseBody
@@ -77,6 +81,7 @@ public class ProductController {
     }
 
 
+
         //PUT            //We replaced @RequestMapping with    @PutMapping
     @PutMapping(value = "/{id}")        //we deleted (value = "/products") and ,method = RequestMethod.PUT
     public  ResponseEntity<List<Product>> updateProduct(@PathVariable("id") long id,@RequestBody Product product){       // we deleted @ResponseBody
@@ -89,6 +94,7 @@ public class ProductController {
 
         return new ResponseEntity<>(list, map, HttpStatus.OK);
     }
+
 
 
     @GetMapping("/read")        //test GET  from -> Postman http://localhost:8080/api/products/read
