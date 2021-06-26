@@ -151,4 +151,10 @@ public class ProductController {
                 .body(new ResponseWrapper("Products Successfully Deleted"));
     }
 
+    @DeleteMapping("/delete4/{id}")        //test DELETE  from -> Postman http://localhost:8080/api/products/delete3/1
+    public ResponseEntity<ResponseWrapper> deleteProduct4(@PathVariable("id") long id){
+        return ResponseEntity
+                .status(HttpStatus.ACCEPTED)
+                .body(new ResponseWrapper("Products Successfully Deleted"));
+    }
 }
