@@ -3,6 +3,7 @@ package com.cybertek.controller;
 import com.cybertek.entity.Product;
 import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.service.ProductService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -16,17 +17,27 @@ import java.util.List;
 
 //@Controller       //We will use @RestController   and remove all   @ResponseBody
 @RestController
-@RequestMapping("/products") //we defined in application.properties now we need to ad /api to our URI while we test in Postman http://localhost:8080/api/products
+@RequestMapping("/products") //    test in Postman http://localhost:8080/products
 public class ProductController {
 
+
+    //MAIN IDEA IS ABSTRACTION IN CONTROLLER CLASS
+    //WE DONT WANT TO WRITE SO MUCH BUSINESS LOGIC IN THE CONTROLLER CLASS
+    //Thats why we create service / service impl / repository
+
+    //FOR LOGGER WE WILL USE AOP - Aspect Oriented Programming
+    //We move all logger lines to other class and we call them where we need
+    //cross cutting :
+    //Aspect : it is NOT a bean. It allows us before / after do smt
+    //Aspect is not controller
     private ProductService productService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
 
         //GET           //We replaced @RequestMapping with    @GetMapping
         //bring certain product  and add headers
@@ -41,7 +52,7 @@ public class ProductController {
     @GetMapping
     public List<Product> getProducts(){
 
-        logger.info("Before -> Controller:{} - Method:{} - Input Parameter : {}", "ProductController", getProducts());
+        logger.info("Before -> Controller:{} - Method:{} - Input Parameter :{}", "ProductController", "getProducts()");
 
             List<Product> list = productService.getProducts();
 
@@ -151,10 +162,5 @@ public class ProductController {
                 .body(new ResponseWrapper("Products Successfully Deleted"));
     }
 
-    @DeleteMapping("/delete4/{id}")        //test DELETE  from -> Postman http://localhost:8080/api/products/delete3/1
-    public ResponseEntity<ResponseWrapper> deleteProduct4(@PathVariable("id") long id){
-        return ResponseEntity
-                .status(HttpStatus.ACCEPTED)
-                .body(new ResponseWrapper("Products Successfully Deleted"));
-    }
+
 }

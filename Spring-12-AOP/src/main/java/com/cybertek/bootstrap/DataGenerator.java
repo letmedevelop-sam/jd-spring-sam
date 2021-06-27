@@ -18,7 +18,7 @@ public class DataGenerator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Product pc = new Product("DELL");
+        Product pc = new Product("XIOMI");
         Product laptop = new Product("MACBOOK");
         Product phone = new Product("Iphone");
         Product tablet = new Product("IPAD");
