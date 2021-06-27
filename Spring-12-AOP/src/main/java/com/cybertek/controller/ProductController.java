@@ -42,13 +42,17 @@ public class ProductController {
 
         //GET           //We replaced @RequestMapping with    @GetMapping
         //bring certain product  and add headers
-    @GetMapping(value = "/{id}")       //We will not need products "/products/{id}"
+//    @GetMapping(value = "/{id}")       //We will not need products "/products/{id}"
                             //As default it is GET ->@RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
-    public ResponseEntity <Product> getProduct(@PathVariable("id") long id){
-        return  ResponseEntity
-                .ok(productService.getProduct(id));
-    }
+//    public ResponseEntity <Product> getProduct(@PathVariable("id") long id){
+//        return  ResponseEntity
+//                .ok(productService.getProduct(id));
+//    }
 
+    @GetMapping(value = "/{id}")
+    public Product getProduct(@PathVariable("id") long id){
+        return productService.getProduct(id);
+    }
 
     @GetMapping
     public List<Product> getProducts(){
