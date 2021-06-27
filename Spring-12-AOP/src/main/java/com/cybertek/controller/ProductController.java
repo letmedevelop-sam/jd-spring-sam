@@ -35,7 +35,8 @@ public class ProductController {
         this.productService = productService;
     }
 
-    Logger logger = LoggerFactory.getLogger(ProductController.class);
+                //WE MOVED the below line TO aspects package
+    //Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 
 
@@ -51,12 +52,12 @@ public class ProductController {
 
     @GetMapping
     public List<Product> getProducts(){
-
-        logger.info("Before -> Controller:{} - Method:{} - Input Parameter :{}", "ProductController", "getProducts()");
+        //WE MOVED the below line TO aspects package
+      //  logger.info("Before -> Controller:{} - Method:{} - Input Parameter :{}", "ProductController", "getProducts()");
 
             List<Product> list = productService.getProducts();
-
-        logger.info("After -> Controller:{} - Method:{} - Output Parameters : {}", "ProductController", "getProducts", list);
+        //WE MOVED the below line TO aspects package
+      //  logger.info("After -> Controller:{} - Method:{} - Output Parameters : {}", "ProductController", "getProducts", list);
 
         return list;
     }
