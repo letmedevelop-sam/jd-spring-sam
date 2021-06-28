@@ -69,18 +69,23 @@ public class ProductController {
 
     //create product
         //POST          //We replaced @RequestMapping with    @PostMapping
-    @PostMapping        // we deleted  (method = RequestMethod.POST)
-    public  ResponseEntity<List<Product>> createProduct(@RequestBody Product product){      // we deleted @ResponseBody
+//    @PostMapping        // we deleted  (method = RequestMethod.POST)
+//    public  ResponseEntity<List<Product>> createProduct(@RequestBody Product product){      // we deleted @ResponseBody
+//
+//        List<Product> set = productService.createProduct(product);
+//
+//        return ResponseEntity
+//                .status(HttpStatus.CREATED)
+//                .header("Version", "Cybertek.v1")
+//                .header("Operation", "Create")
+//                .body(set);
+//    }
 
+    @PostMapping        // we changed this part for day45 36th minute
+    public  List<Product> createProduct(@RequestBody Product product){
         List<Product> set = productService.createProduct(product);
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .header("Version", "Cybertek.v1")
-                .header("Operation", "Create")
-                .body(set);
+        return set;
     }
-
 
 
         //DELETE    //We replaced @RequestMapping with    @DeleteMapping
